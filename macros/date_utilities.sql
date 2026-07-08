@@ -1,4 +1,4 @@
-{% macro function1(x) %}
+{% macro get_season(x) %}
 
    CASE WHEN MONTH(TO_TIMESTAMP({{x}})) in (12,1,2)
     THEN 'WINTER'
@@ -7,6 +7,12 @@
     WHEN MONTH(TO_TIMESTAMP({{x}})) in (6,7,8)
     THEN 'SUMMER'
     ELSE 'AUTUMN' 
-    END AS STATION_OF_YEAR
+    END
 
 {% endmacro %}
+
+{% macro get_day_type(x) %}
+
+  CASE WHEN DAYNAME(TO_TIMESTAMP({{x}})) IN ('sat','sun') then 'WEEKEND' ELSE 'BUISNESSDAY' END 
+
+{% end macro %}
