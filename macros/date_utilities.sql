@@ -15,4 +15,4 @@
 
   CASE WHEN DAYNAME(TO_TIMESTAMP({{x}})) IN ('sat','sun') then 'WEEKEND' ELSE 'BUISNESSDAY' END 
 
-{% end macro %}
+{% endmacro %}
